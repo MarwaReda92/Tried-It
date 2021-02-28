@@ -13,8 +13,6 @@ include('header.php');
         <input type="submit" value="submit" name="submit">
     </form>
 </main>
-<footer>
-    <p>&copy; TriedIt <?php echo getdate()['year']; ?> </p>
-</footer>
-</body>
-</html>
+<?php
+include('footer.php');
+?>
