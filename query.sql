@@ -5,5 +5,6 @@ CREATE TABLE `users` (
   `email` varchar (100) NOT NULL,
   `birthday` date NOT NULL,
   `profession` varchar(100) NOT NULL,
+  `username` varchar (15) NOT NULL,
   PRIMARY KEY (user_id)
 );
