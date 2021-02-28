@@ -8,5 +8,5 @@
 </head>
 <body>
 <header>
-    <h1> Make Better Purchases Because We've Tried It!  </h1>
+    <h1> Make Better Purchases Because We've Tried It! </h1>
 </header>
