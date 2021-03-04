@@ -4,6 +4,7 @@ include('header.php');
 
 <?php
 
+//variables to store the form data
 $first_name = filter_input(INPUT_POST, "firstname");
 $last_name = filter_input(INPUT_POST, "lastname");
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -11,8 +12,10 @@ $birthday = filter_input(INPUT_POST, 'birthday');
 $profession = filter_input(INPUT_POST, "profession");
 $username = filter_input(INPUT_POST, "username");
 
+//a flag variable
 $flag = true;
 
+//some validation
 if ($first_name === false) {
     echo "<p> Names must be letters only and 20 characters or less! </p>";
     $flag = false;
@@ -41,11 +44,16 @@ if ($username === false) {
 
 if ($flag === true) {
     try {
+        //this will connect to the database
         require('connect.php');
+
+        //sql query
         $sql = "INSERT INTO users (first_name, last_name, email, birthday, profession, username) VALUES (:firstname, :lastname, :email, :birthday, :profession, :username);";
 
+        //calls the prepare method of the PDO object
         $statement = $db->prepare($sql);
 
+        //binds the parameters
         $statement->bindParam(':firstname', $first_name);
         $statement->bindParam(':lastname', $last_name);
         $statement->bindParam(':email', $email);
@@ -53,7 +61,10 @@ if ($flag === true) {
         $statement->bindParam(':profession', $profession);
         $statement->bindParam(':username', $username);
 
+        //executes the query
         $statement->execute();
+
+        //closes the database connection
         $statement->closeCursor();
 
     } catch (PDOException $e) {

@@ -1,5 +1,6 @@
 <?php
 try {
+    //data source name (includes the type of data, hostname, and database name)
     $dsn = 'mysql:host=localhost;dbname=tried_it';
     $username = 'root';
     $password = '';
