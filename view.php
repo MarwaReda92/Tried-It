@@ -18,7 +18,7 @@ $statement->execute();
 $records = $statement->fetchAll();
 
 //creating the table
-echo "<table><tbody>";
+echo "<table class='table table-striped'><tbody>";
 
 foreach ($records as $record) {
     echo "<tr><td>" . $record['first_name'] . "</td><td>" . $record['last_name'] . "</td><td>" .
