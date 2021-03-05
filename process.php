@@ -8,7 +8,7 @@ $last_name = filter_input(INPUT_POST, "lastname");
 $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $birthday = filter_input(INPUT_POST, 'birthday');
 $profession = filter_input(INPUT_POST, "profession");
-$username = filter_input(INPUT_POST, "username");
+$nickname = filter_input(INPUT_POST, "nickname");
 
 //a flag variable
 $flag = true;
@@ -34,8 +34,8 @@ if ($profession === false){
     $flag = false;
 }
 
-if ($username === false) {
-    echo "<p> Username must be 15 characters or less! </p>";
+if ($nickname === false) {
+    echo "<p> Nickname must be 15 characters or less! </p>";
     $flag = false;
 }
 
@@ -46,7 +46,7 @@ if ($flag === true) {
         require('connect.php');
 
         //sql query
-        $sql = "INSERT INTO users (first_name, last_name, email, birthday, profession, username) VALUES (:firstname, :lastname, :email, :birthday, :profession, :username);";
+        $sql = "INSERT INTO users (first_name, last_name, email, birthday, profession, nickname) VALUES (:firstname, :lastname, :email, :birthday, :profession, :nickname);";
 
         //calls the prepare method of the PDO object
         $statement = $db->prepare($sql);
@@ -57,7 +57,7 @@ if ($flag === true) {
         $statement->bindParam(':email', $email);
         $statement->bindParam(':birthday', $birthday);
         $statement->bindParam(':profession', $profession);
-        $statement->bindParam(':username', $username);
+        $statement->bindParam(':nickname', $nickname);
 
         //executes the query
         $statement->execute();
