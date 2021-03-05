@@ -1,6 +1,6 @@
 <?php
 //includes the header
-include('header.php');
+require('header.php');
 
 //connects to the database
 require('connect.php');
@@ -32,4 +32,4 @@ echo "</tbody></table>";
 $statement->closeCursor();
 
 
-include('footer.php');
+require('footer.php');

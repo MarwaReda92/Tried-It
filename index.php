@@ -1,18 +1,28 @@
-<?php
-include('header.php');
-?>
+<?php require('header.php'); ?>
     <main>
         <form action="process.php" method="post">
-            <input type="text" name="firstname" placeholder="First Name">
-            <input type="text" name="lastname" placeholder="Last Name">
-            <input type="email" name="email" placeholder="Email">
-            <label for="birthday">Date of Birth:</label>
-            <input type="date" id="birthday" name="birthday">
-            <input type="text" name="profession" placeholder="Profession">
-            <input type="text" name="username" placeholder="Username">
-            <input type="submit" value="submit" name="submit">
+            <div class="form-group">
+                <input type="text" name="firstname" placeholder="First Name" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="lastname" placeholder="Last Name" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="birthday">Date of Birth:</label>
+                <input type="date" id="birthday" name="birthday" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="profession" placeholder="Profession" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" class="form-control">
+            </div>
+            <input type="submit" value="submit" name="submit" class="btn btn-primary">
         </form>
     </main>
 <?php
-include('footer.php');
+require('footer.php');
 ?>

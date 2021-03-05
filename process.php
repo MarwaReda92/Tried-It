@@ -1,6 +1,4 @@
-<?php
-include('header.php');
-?>
+<?php require('header.php'); ?>
 
 <?php
 
@@ -77,5 +75,5 @@ if ($flag === true) {
 
 
 <?php
-include('footer.php');
+require('footer.php');
 ?>
