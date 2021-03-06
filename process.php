@@ -69,5 +69,4 @@ if ($flag === true) {
 }
 ob_flush();
 
-require('footer.php');
-?>
+require('footer.php'); ?>
