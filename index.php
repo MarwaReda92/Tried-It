@@ -9,7 +9,7 @@ $profession = null;
 $nickname = null;
 
 //check if the user is editing
-if (!empty($_GET['id']) && (is_numeric($_GET['id']))){
+if (!empty($_GET['id']) && (is_numeric($_GET['id']))) {
     //grab id and store in a variable
     $id = filter_input(INPUT_GET, 'id');
     //connects to DB

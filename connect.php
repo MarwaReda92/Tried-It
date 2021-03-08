@@ -7,8 +7,6 @@ try {
 
     $db = new PDO($dsn, $username, $password);
 
-    echo "<p> Success </p>";
-
 } catch (PDOException $e) {
     echo "<p> Something went wrong </p>";
     $error_message = $e->getMessage();

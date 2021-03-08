@@ -1,7 +1,7 @@
-<?php require('header.php'); ?>
-
 <?php
 ob_start();
+require('header.php');
+
 //variables to store the form data
 $first_name = filter_input(INPUT_POST, "firstname");
 $last_name = filter_input(INPUT_POST, "lastname");
@@ -36,7 +36,6 @@ if ($flag === true) {
         else {
             $sql = "INSERT INTO users (first_name, last_name, email, birthday, profession, nickname) 
                     VALUES (:firstname, :lastname, :email, :birthday, :profession, :nickname);";
-
         }
 
         //calls the prepare method of the PDO object
@@ -69,4 +68,4 @@ if ($flag === true) {
 }
 ob_flush();
 
-require('footer.php'); ?>
+require('footer.php');
