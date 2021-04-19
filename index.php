@@ -1,4 +1,5 @@
 <?php require('header.php');
+
 //initialize variables
 $id = null;
 $firstname = null;
@@ -6,7 +7,6 @@ $lastname = null;
 $email = null;
 $birthday = null;
 $profession = null;
-$nickname = null;
 
 //check if the user is editing
 if (!empty($_GET['id']) && (is_numeric($_GET['id']))) {
@@ -17,7 +17,7 @@ if (!empty($_GET['id']) && (is_numeric($_GET['id']))) {
     //set up query
     $sql = "SELECT * FROM users WHERE user_id = :user_id;";
     //prepare
-    $statement = $db->prepare($sql);
+    $statement = dbo()->prepare($sql);
     //bind
     $statement->bindParam(':user_id', $id);
     //execute
@@ -30,7 +30,6 @@ if (!empty($_GET['id']) && (is_numeric($_GET['id']))) {
         $email = $record['email'];
         $birthday = $record['birthday'];
         $profession = $record['profession'];
-        $nickname = $record['nickname'];
     endforeach;
     $statement->closeCursor();
 }
@@ -59,10 +58,6 @@ if (!empty($_GET['id']) && (is_numeric($_GET['id']))) {
             <div class="form-group">
                 <input type="text" name="profession" placeholder="Profession" class="form-control"
                        value="<?php echo $profession; ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="nickname" placeholder="Nickname" class="form-control"
-                       value="<?php echo $nickname; ?>">
             </div>
             <input type="submit" value="submit" name="submit" class="btn btn-primary">
         </form>
